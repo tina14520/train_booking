@@ -1,4 +1,4 @@
-const Client = require("../models/Client");
+const Client = require("../models/client");
 // const Trip = require("../../models/Trip");
 const {
   validationResult
@@ -241,6 +241,7 @@ exports.register = async (req, res, next) => {
   // UPLOAD IMAGES TO SERVER
   // await convertLoop(imgsArray);
   console.log("From register");
+  console.log("this is another log");
   // console.log(imagesIncoded);
   // profile_img = imagesIncoded.find(
   //   (x) => x.fileParam === "profile_img"
