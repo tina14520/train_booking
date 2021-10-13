@@ -27,15 +27,14 @@ const clientSchema = new mongoose.Schema({
   profile_img: {
     type: String,
     required: false,
-    // maxLength: 255,
     default: 'image.png'
   },
   last_otp: {
     type: String,
   },
-  previous_trips: {
+  previous_tickets: {
     type:[String],
-    default: 'No Previous trips Yet',
+    default: 'No Previous tickets Yet',
 
     from: {
       type: String,

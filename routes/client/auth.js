@@ -42,51 +42,30 @@ router.post(
   ],
   clientController.validateOtp
 );
-
-// Password
 router.post("/driver/reset_password",  clientController.reset_password);
 router.get("/driver/check_user_otp",  clientController.checkUserOtp);
-// router.post("/client/add_trip", isClientAuth,  tripController.add_trip);
+router.get("/client/get_all_tickets", isClientAuth,  clientController.getAllTickets);
+router.get('/client/get_previous_tickets',isClientAuth,  clientController.get_previous_tickets);
+router.post('/client/dash_register',
+  [
+    body("phone", "Please Enter a Valid Phone").not().isEmpty(),
+    body("name", "Please Enter a Valid Name").not().isEmpty()
+  ],clientController.dashRegister);
 
-
-
-// router.get(
-//   "/client/get_trips",isClientAuth,
-//   clientController.get_trips
-// );
-
-// router.get("/client/get", isClientAuth , clientController.getClient);
-router.get("/client/get_all_trips", isClientAuth,  clientController.getAllTrips);
-
-// router.get("/client/search" ,clientController.searchClients);
-// router.get('/client/check_version', clientController.checkVersion)
-// router.get("/client/calculate_price",  ticketCtrl.calculatePrice);
-// router.put('/client/update_place', clientController.addSavedPlaces);
-router.get('/client/get_favourite_places',isClientAuth,  clientController.get_previous_trips);
-
-router.post('/client/dash_register',[body("phone", "Please Enter a Valid Phone").not().isEmpty(),
-body("name", "Please Enter a Valid Name").not().isEmpty()],clientController.dashRegister);
-router.post('/add_passenger', [
-      body("name", "Please Enter name").not().isEmpty(),
-      body("email", "Please Enter a valid email").not().isEmpty().isEmail(),
-      body("password", "Please Enter password").not().isEmpty(),
-      body("phone", "Please Enter a valid phone").not().isEmpty().isMobilePhone()
-  ], clientController.add_passenger);
-  
+  // router.post('/add_passenger', [
+  //       body("name", "Please Enter name").not().isEmpty(),
+  //       body("email", "Please Enter a valid email").not().isEmpty().isEmail(),
+  //       body("password", "Please Enter password").not().isEmpty(),
+  //       body("phone", "Please Enter a valid phone").not().isEmpty().isMobilePhone()
+  //   ], clientController.add_passenger);
   //READ ONE PASSENGER
   // router.get('/get_passenger/:id', clientController.get_passenger); 
-
   //UPDATE ONE PASSENGER 
   // router.put('/update_passenger/:id', clientController.update_passenger);
-
-
   // router.put('/disable_passenger/:id', clientController.disable_passenger);
-   
   //DELETE ONE PASSENGER
-  router.delete('/delete_passenger/:id', clientController.delete_passenger);
- 
+  // router.delete('/delete_passenger/:id', clientController.delete_passenger);
   //GET ALL Passengers
-  router.get('/all', clientController.getAll);
-
-
+  // router.get('/all', clientController.getAll);
+  
 module.exports = router;

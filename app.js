@@ -14,6 +14,7 @@ const mongoUrl = process.env.DB_CONNECTION || "mongodb+srv://Tina:pfDHC6ZsPHOhbe
 
 // Import Routes
 const clientAuthRoute = require('./routes/client/auth');
+const ticketRoutes= require('./routes/ticket.routes')
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -31,16 +32,8 @@ app.use(bodyParser.json({limit: '500mb'}));
 
 
 // Route Middleware
-// app.use('/api/mobile', driverAuthRoute)
-app.use('/api/mobile', clientAuthRoute)
-// app.use('/api/admin', adminAuthRoute)
-// app.use('/api/service', serviceRoute)
-// app.use('/api/coupon', couponRoutes);
-// app.use('/api/proposal', proposalRoutes);
-// app.use('/api/rate', rateRoutes);
-// app.use('/api/recharge', rechargeRoutes);
-// app.use('/api/settings', settingsRoutes);
-// app.use('/api/reports', reportsRoutes);
+app.use('/api/mobile', clientAuthRoute),
+app.use('/api/mobile',ticketRoutes)
 
 mongoose.connect(mongoUrl, {
         useNewUrlParser: true,

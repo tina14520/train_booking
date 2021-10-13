@@ -4,17 +4,17 @@ const ticketSchema = new mongoose.Schema(
   {
     client_id: {
       type: String,
-      required: false,
+      required: true,
     },
     train: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Train",
       required: false
-  },
+    },
     client: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Client",
-      required: true,
+      // required: true,
     },
     from: {
       type: String,
@@ -22,7 +22,6 @@ const ticketSchema = new mongoose.Schema(
       max: 255,
       required: true,
     },
-    
     to: {
       type: String,
       min: 6,
@@ -32,16 +31,24 @@ const ticketSchema = new mongoose.Schema(
     price: {
       type: String,
       required: false,
-  },
-    seats: {
+    },
+    seatID: {
       type:[String] ,
       required: true,
-      default: false,
+      // default: false,
     },
-    request_date: {
-        type: Date.now(),
-        required: true,
+    seats:{
+      type:[Boolean] ,
+      // required: true
     },
+    // request_date: {
+    //     type: Date.now(),
+    //     required: true,
+    // },
+    date:{
+      type:Date,
+      required:true
+    }
   },
   {
     timestamps: true,
