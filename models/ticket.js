@@ -32,13 +32,17 @@ const ticketSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    seatID: {
-      type:[String] ,
-      required: true,
-      // default: false,
-    },
+    // seatID: {
+    //   type:[String] ,
+    //   required: true,
+    //   // default: false,
+    // },
     seats:{
-      type:[Boolean] ,
+      type:[{
+        id: String,
+        status: Boolean
+      }],
+      
       // required: true
     },
     // request_date: {

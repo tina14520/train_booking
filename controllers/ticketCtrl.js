@@ -17,7 +17,6 @@ exports.add_ticket = async (req, res, next) => {
         to,
         seats,
         date,
-        seatID,
         client_id
     } = req.body
     const price = await Math.floor(1000 + Math.random() * 200);
@@ -31,7 +30,6 @@ exports.add_ticket = async (req, res, next) => {
         seats,
         date,
         price,
-        seatID,
         client,
         client_id
     })
